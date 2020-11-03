@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
 import Tours from './Tours';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 const url = 'https://course-api.netlify.app/api/react-tours-project';
 
 function App() {
@@ -49,8 +50,9 @@ function App() {
   return (
     <main>
       <Tours tours={tours} removeTour={removeTour} />
+      <AmplifySignOut />
     </main>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
